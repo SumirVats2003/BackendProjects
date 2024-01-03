@@ -1,0 +1,6 @@
+# ignore ejs to avoid autocompletions in template files
+*.ejs
+
+.gitignore
+.env
+/node_modules/
