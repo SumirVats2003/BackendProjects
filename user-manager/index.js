@@ -5,11 +5,12 @@ import { dirname } from "path";
 import "dotenv/config";
 
 import router from "./server/routes/routes.js";
+import connectDB from "./server/database/connection.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+connectDB();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
