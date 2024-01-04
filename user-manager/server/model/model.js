@@ -14,6 +14,6 @@ const schema = mongoose.Schema({
   status: String,
 });
 
-const user = mongoose.model("users", schema);
+const userDb = mongoose.model("users", schema);
 
-export default user;
+export default userDb;
