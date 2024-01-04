@@ -1,5 +1,14 @@
+import axios from "axios";
+
 const homeRoute = (req, res) => {
-  res.render("index");
+  axios
+    .get("http://localhost:8080/api/users")
+    .then((response) => {
+      res.render("index", { users: response.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 const addUser = (req, res) => {
