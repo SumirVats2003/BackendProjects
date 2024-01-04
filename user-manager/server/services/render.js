@@ -16,7 +16,16 @@ const addUser = (req, res) => {
 };
 
 const updateUser = (req, res) => {
-  res.render("update_user");
+  axios
+    .get("http://localhost:8080/api/users", {
+      params: { id: req.query.id },
+    })
+    .then((userData) => {
+      res.render("update_user", { user: userData.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 export { homeRoute, addUser, updateUser };
